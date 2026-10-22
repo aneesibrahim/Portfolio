@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Anees Nambiyatheyil — Senior Front-End Application Developer & Tech Lead</title>
+  <meta name="description" content="Portfolio and Resume of Anees Nambiyatheyil, Senior Front-End Developer and Tech Lead with 9+ years of experience in Enterprise SaaS, React, Next.js, and AdTech.">
+
+  <!-- Tailwind (CDN build) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* theme colours */
+    :root {
+      --bg: #e6ecf5;
+      --surface: #e6ecf5;
+      --text-main: #2d3748;
+      --text-muted: #64748b;
+      --text-heading: #0f172a;
+      --accent: #4f46e5;
+      --accent-hover: #4338ca;
+      --accent-glow: rgba(79, 70, 229, 0.25);
+
+      /* shadows, light */
+      --shadow-light: #ffffff;
+      --shadow-dark: #b8c2d1;
+      --border-subtle: rgba(255, 255, 255, 0.7);
+    }
+
+    html.dark {
+      --bg: #1a1f29;
+      --surface: #1a1f29;
+      --text-main: #cbd5e1;
+      --text-muted: #94a3b8;
+      --text-heading: #f8fafc;
+      --accent: #6366f1;
+      --accent-hover: #818cf8;
+      --accent-glow: rgba(99, 102, 241, 0.3);
+
+      /* shadows, dark */
+      --shadow-light: #222937;
+      --shadow-dark: #12151b;
+      --border-subtle: rgba(255, 255, 255, 0.04);
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text-main);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      scroll-behavior: smooth;
+    }
+
+    /* scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: var(--bg);
+    }
+    ::-webkit-scrollbar-thumb {
+      background: var(--shadow-dark);
+      border-radius: 4px;
+    }
+
+    /* neumorphic utilities */
+
+    /* raised card */
+    .neu-card {
+      background: var(--surface);
+      box-shadow: 10px 10px 20px var(--shadow-dark), -10px -10px 20px var(--shadow-light);
+      border: 1px solid var(--border-subtle);
+      border-radius: 1.5rem;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .neu-card-sm {
+      background: var(--surface);
+      box-shadow: 6px 6px 12px var(--shadow-dark), -6px -6px 12px var(--shadow-light);
+      border: 1px solid var(--border-subtle);
+      border-radius: 1rem;
+    }
+
+    /* pressed-in container */
+    .neu-inset {
+      background: var(--surface);
+      box-shadow: inset 5px 5px 10px var(--shadow-dark), inset -5px -5px 10px var(--shadow-light);
+      border-radius: 1rem;
+    }
+
+    /* buttons */
+    .neu-btn {
+      background: var(--surface);
+      box-shadow: 6px 6px 12px var(--shadow-dark), -6px -6px 12px var(--shadow-light);
+      border: 1px solid var(--border-subtle);
+      border-radius: 0.875rem;
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      color: var(--text-main);
+    }
+    .neu-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 8px 8px 16px var(--shadow-dark), -8px -8px 16px var(--shadow-light);
+    }
+    .neu-btn:active, .neu-btn.is-active {
+      transform: translateY(1px);
+      box-shadow: inset 4px 4px 8px var(--shadow-dark), inset -4px -4px 8px var(--shadow-light);
+      color: var(--accent);
+    }
+
+    /* accent button */
+    .neu-btn-accent {
+      background: var(--accent);
+      color: #ffffff !important;
+      box-shadow: 6px 6px 14px var(--accent-glow), -4px -4px 10px var(--shadow-light);
+      border-radius: 0.875rem;
+      transition: all 0.2s ease;
+    }
+    .neu-btn-accent:hover {
+      background: var(--accent-hover);
+      box-shadow: 8px 8px 18px var(--accent-glow), -6px -6px 12px var(--shadow-light);
+      transform: translateY(-1px);
+    }
+    .neu-btn-accent:active {
+      transform: translateY(1px);
+      box-shadow: inset 3px 3px 6px rgba(0, 0, 0, 0.3);
+    }
+
+    /* focus outline */
+    a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
+    }
+  </style>
+</head>
+<body class="antialiased min-h-screen selection:bg-indigo-500 selection:text-white">
+
+  <!-- nav -->
+  <header class="sticky top-0 z-40 bg-opacity-90 backdrop-blur-md py-4" style="background-color: var(--bg);">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 flex items-center justify-between">
+
+      <!-- logo -->
+      <a href="#hero" class="flex items-center space-x-3 group" aria-label="Anees Nambiyatheyil Home">
+        <div class="w-11 h-11 neu-btn flex items-center justify-center font-black text-lg text-indigo-600 dark:text-indigo-400 group-hover:scale-105 transition-transform">
+          AN
+        </div>
+        <div>
+          <span class="font-bold text-base tracking-tight block leading-tight" style="color: var(--text-heading);">Anees Nambiyatheyil</span>
+          <span class="text-xs font-medium" style="color: var(--text-muted);">Front-End Developer & Tech Lead</span>
+        </div>
+      </a>
+
+      <!-- nav links + buttons -->
+      <div class="flex items-center space-x-2 sm:space-x-4">
+        <nav class="hidden md:flex items-center space-x-2 text-xs font-bold">
+          <a href="#about" class="px-4 py-2.5 neu-btn">About</a>
+          <a href="#projects" class="px-4 py-2.5 neu-btn">Projects</a>
+          <a href="#experience" class="px-4 py-2.5 neu-btn">Career</a>
+          <a href="#skills" class="px-4 py-2.5 neu-btn">Skills</a>
+        </nav>
+
+        <!-- resume button -->
+        <button id="open-resume-btn" class="px-4 py-2.5 neu-btn text-xs font-bold flex items-center space-x-2" aria-label="Open Resume Viewer">
+          <i class="fa-solid fa-file-pdf text-red-500"></i>
+          <span>Resume</span>
+        </button>
+
+        <a href="#contact" class="px-5 py-2.5 neu-btn-accent text-xs font-bold uppercase tracking-wider hidden sm:inline-block">
+          Contact Me
+        </a>
+
+        <!-- theme toggle -->
+        <button id="theme-toggle" class="w-11 h-11 neu-btn flex items-center justify-center" aria-label="Toggle Light and Dark Theme">
+          <i class="fa-solid fa-moon text-indigo-600 dark:hidden"></i>
+          <i class="fa-solid fa-sun text-amber-400 hidden dark:block"></i>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- hero -->
+  <section id="hero" class="py-10 sm:py-16 px-4 sm:px-6">
+    <div class="max-w-6xl mx-auto">
+
+      <div class="p-8 sm:p-14 neu-card relative overflow-hidden space-y-8">
+
+        <!-- status pill -->
+        <div class="inline-flex items-center space-x-2.5 px-4 py-2 neu-inset text-xs font-bold" style="color: var(--text-muted);">
+          <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+          <span>UAE Based • Open to Senior Technical & Engineering Lead Roles</span>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+
+          <!-- intro text -->
+          <div class="lg:col-span-8 space-y-4">
+            <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight leading-tight" style="color: var(--text-heading);">
+              Anees Nambiyatheyil
+            </h1>
+            <p class="text-lg sm:text-xl font-bold" style="color: var(--accent);">
+              Senior Front-End Application Developer & Tech Lead
+            <!-- buttons -->
+            <div class="pt-4 flex flex-wrap gap-3 sm:gap-4 items-center">
+              <button id="hero-resume-btn" class="px-6 py-3.5 neu-btn-accent font-bold text-xs uppercase tracking-wider flex items-center space-x-2.5">
+                <i class="fa-solid fa-file-arrow-down text-sm"></i>
+                <span>Download CV / Resume</span>
+              </button>
+
+              <a href="#projects" class="px-6 py-3.5 neu-btn font-bold text-xs uppercase tracking-wider flex items-center space-x-2">
+                <span>View Projects</span>
+                <i class="fa-solid fa-arrow-down text-xs"></i>
+              </a>
+
+              <a href="#contact" class="px-6 py-3.5 neu-btn font-bold text-xs uppercase tracking-wider flex items-center space-x-2">
+                <i class="fa-regular fa-paper-plane text-indigo-500"></i>
+                <span>Contact</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- quick stats -->
+          <div class="lg:col-span-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4">
+            <div class="p-4 sm:p-5 neu-inset flex items-center space-x-4">
+              <div class="w-12 h-12 neu-card-sm flex items-center justify-center text-indigo-600 dark:text-indigo-400 text-xl font-bold">
+                <i class="fa-solid fa-clock-rotate-left"></i>
+              </div>
+              <div>
+                <div class="text-xl sm:text-2xl font-black" style="color: var(--text-heading);">9+ Years</div>
+                <div class="text-xs font-semibold" style="color: var(--text-muted);">SaaS & Front-End Engineering</div>
+              </div>
+            </div>
+
+            <div class="p-4 sm:p-5 neu-inset flex items-center space-x-4">
+              <div class="w-12 h-12 neu-card-sm flex items-center justify-center text-emerald-500 text-xl font-bold">
+                <i class="fa-solid fa-user-shield"></i>
+              </div>
+              <div>
+                <div class="text-xl sm:text-2xl font-black" style="color: var(--text-heading);">4 Promotions</div>
+                <div class="text-xs font-semibold" style="color: var(--text-muted);">Associate to Team Lead</div>
+              </div>
+            </div>
+
+            <div class="p-4 sm:p-5 neu-inset flex items-center space-x-4">
+              <div class="w-12 h-12 neu-card-sm flex items-center justify-center text-amber-500 text-xl font-bold">
+                <i class="fa-solid fa-cubes"></i>
+              </div>
+              <div>
+                <div class="text-xl sm:text-2xl font-black" style="color: var(--text-heading);">JivoxIQ Platform</div>
+                <div class="text-xs font-semibold" style="color: var(--text-muted);">Enterprise Dynamic Ad SaaS</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- clients -->
+  <section id="about" class="py-6 px-4 sm:px-6">
+    <div class="max-w-6xl mx-auto">
+
+      <div class="p-6 sm:p-8 neu-card space-y-4">
+        <h2 class="text-sm font-extrabold uppercase tracking-widest text-center sm:text-left flex items-center justify-center sm:justify-start space-x-2" style="color: var(--accent);">
+          <i class="fa-solid fa-briefcase"></i>
+          <span>Campaigns & Applications Built For Global Brands</span>
+        </h2>
+
+        <!-- client names -->
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-3 font-bold text-xs text-center">
+          <div class="p-3.5 neu-inset uppercase tracking-wider" style="color: var(--text-heading);">Marriott</div>
+          <div class="p-3.5 neu-inset uppercase tracking-wider" style="color: var(--text-heading);">Bosch</div>
+          <div class="p-3.5 neu-inset uppercase tracking-wider" style="color: var(--text-heading);">Nestlé</div>
+          <div class="p-3.5 neu-inset uppercase tracking-wider" style="color: var(--text-heading);">Mazda</div>
+          <div class="p-3.5 neu-inset uppercase tracking-wider" style="color: var(--text-heading);">Condé Nast</div>
+          <div class="p-3.5 neu-inset uppercase tracking-wider" style="color: var(--text-heading);">Time Inc.</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- projects -->
+  <section id="projects" class="py-12 px-4 sm:px-6">
+    <div class="max-w-6xl mx-auto space-y-8">
+
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+        <div>
+          <span class="text-xs font-extrabold uppercase tracking-widest" style="color: var(--accent);">Key Deliverables</span>
+          <h2 class="text-2xl sm:text-3xl font-extrabold mt-1" style="color: var(--text-heading);">Featured Projects</h2>
+        </div>
+
+        <!-- filter buttons -->
+        <div class="flex flex-wrap gap-2 text-xs font-bold" id="project-filters">
+          <button data-filter="all" class="filter-btn px-4 py-2.5 neu-btn is-active">All</button>
+          <button data-filter="SaaS" class="filter-btn px-4 py-2.5 neu-btn">Enterprise SaaS</button>
+          <button data-filter="React" class="filter-btn px-4 py-2.5 neu-btn">React / Next.js</button>
+          <button data-filter="AdTech" class="filter-btn px-4 py-2.5 neu-btn">AdTech & Automation</button>
+        </div>
+      </div>
+
+      <!-- project cards -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8" id="projects-grid">
+        <!-- filled in by renderProjects -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- career timeline -->
+  <section id="experience" class="py-12 px-4 sm:px-6">
+    <div class="max-w-6xl mx-auto space-y-8">
+
+      <div>
+        <span class="text-xs font-extrabold uppercase tracking-widest" style="color: var(--accent);">Career Growth</span>
+        <h2 class="text-2xl sm:text-3xl font-extrabold mt-1" style="color: var(--text-heading);">DaVinci Commerce Trajectory (9+ Years)</h2>
+      </div>
+
+      <div class="p-6 sm:p-12 neu-card space-y-8">
+
+        <div class="relative space-y-8 before:absolute before:inset-0 before:left-4 sm:before:left-5 before:w-1 before:bg-slate-300 dark:before:bg-slate-700 before:rounded-full">
+
+          <!-- Team Lead -->
+          <div class="relative pl-10 sm:pl-14 space-y-2">
+            <div class="absolute left-0 sm:left-1 top-0 w-8 h-8 neu-card-sm flex items-center justify-center text-indigo-600 dark:text-indigo-400 text-xs font-black">
+              <i class="fa-solid fa-crown"></i>
+            </div>
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+              <h3 class="text-lg sm:text-xl font-extrabold" style="color: var(--text-heading);">Team Lead — Front-End Development</h3>
+              <span class="px-3 py-1 neu-inset text-xs font-bold text-indigo-600 dark:text-indigo-400 w-fit">Oct 2024 – Oct 2025</span>
+            </div>
+            <p class="text-xs font-semibold" style="color: var(--text-muted);">DaVinci Commerce • Bengaluru, India</p>
+            <p class="text-sm leading-relaxed pt-1" style="color: var(--text-main);">
+              Led front-end engineers building JivoxIQ. Set architectural direction and code standards for React and Next.js applications, reviewed code, optimized performance, and introduced AI-assisted developer workflows into the delivery pipeline.
+            </p>
+          </div>
+
+          <!-- Senior Developer -->
+          <div class="relative pl-10 sm:pl-14 space-y-2">
+            <div class="absolute left-0 sm:left-1 top-0 w-8 h-8 neu-card-sm flex items-center justify-center text-indigo-500 text-xs font-black">
+              <i class="fa-solid fa-code"></i>
+            </div>
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+              <h3 class="text-lg sm:text-xl font-extrabold" style="color: var(--text-heading);">Senior Front-End Developer</h3>
+              <span class="px-3 py-1 neu-inset text-xs font-bold w-fit" style="color: var(--text-muted);">Oct 2021 – Oct 2024</span>
+            </div>
+            <p class="text-xs font-semibold" style="color: var(--text-muted);">DaVinci Commerce • Bengaluru, India</p>
+            <p class="text-sm leading-relaxed pt-1" style="color: var(--text-main);">
+              Architected scalable web UI components with JavaScript, React, Next.js, and CSS3. Created reusable component libraries, improved browser loading times, and managed custom dynamic ad formats for major publishers like Condé Nast and Time Inc.
+            </p>
+          </div>
+
+          <!-- Developer -->
+          <div class="relative pl-10 sm:pl-14 space-y-2">
+            <div class="absolute left-0 sm:left-1 top-0 w-8 h-8 neu-card-sm flex items-center justify-center text-slate-500 text-xs font-black">
+              <i class="fa-solid fa-laptop-code"></i>
+            </div>
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+              <h3 class="text-lg sm:text-xl font-extrabold" style="color: var(--text-heading);">Front-End Developer</h3>
+              <span class="px-3 py-1 neu-inset text-xs font-bold w-fit" style="color: var(--text-muted);">Oct 2018 – Sep 2021</span>
+            </div>
+            <p class="text-xs font-semibold" style="color: var(--text-muted);">DaVinci Commerce • Bengaluru, India</p>
+            <p class="text-sm leading-relaxed pt-1" style="color: var(--text-main);">
+              Developed responsive interface features for JivoxIQ. Resolved complex cross-browser and cross-device rendering issues and collaborated closely with UX designers to translate design mocks into reliable code.
+            </p>
+          </div>
+
+          <!-- Associate Developer -->
+          <div class="relative pl-10 sm:pl-14 space-y-2">
+            <div class="absolute left-0 sm:left-1 top-0 w-8 h-8 neu-card-sm flex items-center justify-center text-slate-400 text-xs font-black">
+              <i class="fa-solid fa-terminal"></i>
+            </div>
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+              <h3 class="text-lg sm:text-xl font-extrabold" style="color: var(--text-heading);">Associate Developer</h3>
+              <span class="px-3 py-1 neu-inset text-xs font-bold w-fit" style="color: var(--text-muted);">Jul 2016 – Oct 2018</span>
+            </div>
+            <p class="text-xs font-semibold" style="color: var(--text-muted);">DaVinci Commerce • Bengaluru, India</p>
+            <p class="text-sm leading-relaxed pt-1" style="color: var(--text-main);">
+              Built core UI components and dynamic creative templates, demonstrating consistent delivery that resulted in successive promotions.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- skills -->
+  <section id="skills" class="py-12 px-4 sm:px-6">
+    <div class="max-w-6xl mx-auto space-y-8">
+
+      <div>
+        <span class="text-xs font-extrabold uppercase tracking-widest" style="color: var(--accent);">Core Competencies</span>
+        <h2 class="text-2xl sm:text-3xl font-extrabold mt-1" style="color: var(--text-heading);">Skills & Technologies</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+        <!-- languages -->
+        <div class="p-6 neu-card space-y-4">
+          <div class="w-10 h-10 neu-inset flex items-center justify-center text-indigo-500 font-bold">
+            <i class="fa-solid fa-code"></i>
+          </div>
+          <h3 class="text-base font-bold" style="color: var(--text-heading);">Core Stack</h3>
+          <div class="flex flex-wrap gap-2 text-xs">
+            <span class="px-3 py-1.5 neu-btn font-semibold">JavaScript (ES6+)</span>
+            <span class="px-3 py-1.5 neu-btn font-semibold">React.js</span>
+            <span class="px-3 py-1.5 neu-btn font-semibold">Next.js</span>
+            <span class="px-3 py-1.5 neu-btn font-semibold">HTML5</span>
+            <span class="px-3 py-1.5 neu-btn font-semibold">CSS3</span>
+          </div>
+        </div>
+
+        <!-- architecture -->
+        <div class="p-6 neu-card space-y-4">
+          <div class="w-10 h-10 neu-inset flex items-center justify-center text-emerald-500 font-bold">
+            <i class="fa-solid fa-layer-group"></i>
+          </div>
+          <h3 class="text-base font-bold" style="color: var(--text-heading);">SaaS Architecture</h3>
+          <div class="flex flex-wrap gap-2 text-xs">
+            <span class="px-3 py-1.5 neu-btn font-semibold">Enterprise SaaS</span>
+            <span class="px-3 py-1.5 neu-btn font-semibold">Component Libraries</span>
+            <span class="px-3 py-1.5 neu-btn font-semibold">Interactive Editors</span>
+            <span class="px-3 py-1.5 neu-btn font-semibold">Dashboards</span>
+          </div>
+        </div>
+
+        <!-- quality -->
+        <div class="p-6 neu-card space-y-4">
+          <div class="w-10 h-10 neu-inset flex items-center justify-center text-amber-500 font-bold">
+            <i class="fa-solid fa-gauge-high"></i>
+          </div>
+          <h3 class="text-base font-bold" style="color: var(--text-heading);">Quality & Performance</h3>
+          <div class="flex flex-wrap gap-2 text-xs">
+            <span class="px-3 py-1.5 neu-btn font-semibold">Optimization</span>
+            <span class="px-3 py-1.5 neu-btn font-semibold">Cross-Browser</span>
+            <span class="px-3 py-1.5 neu-btn font-semibold">Cross-Device Testing</span>
+            <span class="px-3 py-1.5 neu-btn font-semibold">Code Reviews</span>
+          </div>
+        </div>
+
+        <!-- tooling -->
+        <div class="p-6 neu-card space-y-4">
+          <div class="w-10 h-10 neu-inset flex items-center justify-center text-sky-500 font-bold">
+            <i class="fa-solid fa-people-roof"></i>
+          </div>
+          <h3 class="text-base font-bold" style="color: var(--text-heading);">Tools & Leadership</h3>
+          <div class="flex flex-wrap gap-2 text-xs">
+            <span class="px-3 py-1.5 neu-btn font-semibold">Git</span>
+            <span class="px-3 py-1.5 neu-btn font-semibold">Figma</span>
+            <span class="px-3 py-1.5 neu-btn font-semibold">AI Tooling</span>
+            <span class="px-3 py-1.5 neu-btn font-semibold">Team Mentoring</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- contact -->
+  <section id="contact" class="py-12 px-4 sm:px-6">
+    <div class="max-w-6xl mx-auto">
+
+      <div class="p-8 sm:p-12 neu-card grid grid-cols-1 lg:grid-cols-12 gap-8">
+
+        <!-- contact details -->
+        <div class="lg:col-span-5 space-y-6">
+          <span class="text-xs font-extrabold uppercase tracking-widest" style="color: var(--accent);">Get In Touch</span>
+          <h2 class="text-2xl sm:text-3xl font-extrabold" style="color: var(--text-heading);">Contact & Connect</h2>
+          <p class="text-sm leading-relaxed" style="color: var(--text-main);">
+            Interested in discussing technical opportunities, front-end architecture, or leadership roles? Feel free to send a message or connect directly.
+          </p>
+
+          <div class="space-y-4 pt-2">
+            <a href="mailto:aneesnambiyatheyil@gmail.com" class="p-4 neu-inset flex items-center space-x-4 block group">
+              <div class="w-10 h-10 neu-card-sm flex items-center justify-center text-indigo-500">
+                <i class="fa-regular fa-envelope"></i>
+              </div>
+              <div class="overflow-hidden">
+                <div class="text-[10px] font-bold uppercase" style="color: var(--text-muted);">Email</div>
+                <div class="text-xs sm:text-sm font-bold truncate group-hover:text-indigo-500 transition-colors" style="color: var(--text-heading);">aneesnambiyatheyil@gmail.com</div>
+              </div>
+            </a>
+
+            <!-- LinkedIn -->
+            <a href="https://linkedin.com/in/anees-ibrahim-8596b715" target="_blank" rel="noopener noreferrer" class="p-4 neu-inset flex items-center justify-between block group">
+              <div class="flex items-center space-x-4">
+                <div class="w-10 h-10 neu-card-sm flex items-center justify-center text-sky-500">
+                  <i class="fa-brands fa-linkedin-in text-base"></i>
+                </div>
+                <div>
+                  <div class="text-[10px] font-bold uppercase" style="color: var(--text-muted);">LinkedIn Network</div>
+                  <div class="text-xs sm:text-sm font-bold group-hover:text-sky-500 transition-colors" style="color: var(--text-heading);">Anees Ibrahim Nambiyatheyil</div>
+                </div>
+              </div>
+              <span class="px-3 py-1.5 neu-btn text-[10px] font-bold uppercase tracking-wider text-sky-600 dark:text-sky-400 flex items-center space-x-1.5">
+                <span>View Profile</span>
+                <i class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i>
+              </span>
+            </a>
+
+            <div class="p-4 neu-inset flex items-center space-x-4">
+              <div class="w-10 h-10 neu-card-sm flex items-center justify-center text-emerald-500">
+                <i class="fa-solid fa-phone"></i>
+              </div>
+              <div>
+                <div class="text-[10px] font-bold uppercase" style="color: var(--text-muted);">Phone</div>
+                <div class="text-xs sm:text-sm font-bold" style="color: var(--text-heading);">+971 55 617 6229</div>
+              </div>
+            </div>
+
+            <div class="p-4 neu-inset flex items-center space-x-4">
+              <div class="w-10 h-10 neu-card-sm flex items-center justify-center text-sky-500">
+                <i class="fa-solid fa-location-dot"></i>
+              </div>
+              <div>
+                <div class="text-[10px] font-bold uppercase" style="color: var(--text-muted);">Location</div>
+                <div class="text-xs sm:text-sm font-bold" style="color: var(--text-heading);">United Arab Emirates</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- contact form -->
+        <div class="lg:col-span-7">
+          <form id="contact-form" class="space-y-4">
+            <div>
+              <label for="user-name" class="block text-xs font-bold uppercase tracking-wider mb-2" style="color: var(--text-muted);">Full Name</label>
+              <input type="text" id="user-name" required placeholder="yourname" class="w-full px-4 py-3.5 neu-inset text-sm placeholder-slate-400 focus:outline-none" style="color: var(--text-heading);">
+            </div>
+
+            <div>
+              <label for="user-email" class="block text-xs font-bold uppercase tracking-wider mb-2" style="color: var(--text-muted);">Email Address</label>
+              <input type="email" id="user-email" required placeholder="email@company.com" class="w-full px-4 py-3.5 neu-inset text-sm placeholder-slate-400 focus:outline-none" style="color: var(--text-heading);">
+            </div>
+
+            <div>
+              <label for="user-message" class="block text-xs font-bold uppercase tracking-wider mb-2" style="color: var(--text-muted);">Message</label>
+              <textarea id="user-message" rows="4" required placeholder="Hi Anees, I'd like to discuss..." class="w-full px-4 py-3.5 neu-inset text-sm placeholder-slate-400 focus:outline-none" style="color: var(--text-heading);"></textarea>
+            </div>
+
+            <button type="submit" id="submit-btn" class="w-full py-4 neu-btn-accent font-bold text-xs uppercase tracking-wider flex items-center justify-center space-x-2">
+              <span id="btn-text">Send Message</span>
+              <i class="fa-solid fa-paper-plane text-xs" id="btn-icon"></i>
+            </button>
+          </form>
+        </div>
+
+      </div>
+
+      <footer class="mt-12 text-center text-xs font-semibold" style="color: var(--text-muted);">
+        © <span id="current-year">2026</span> Anees Nambiyatheyil. Built with clean HTML, CSS & JavaScript.
+      </footer>
+
+    </div>
+  </section>
+
+  <!-- resume modal -->
+  <div id="resume-modal-overlay" class="fixed inset-0 z-50 hidden bg-slate-900/60 backdrop-blur-md flex items-center justify-center p-3 sm:p-6">
+    <div class="neu-card max-w-4xl w-full p-6 sm:p-8 space-y-6 relative max-h-[92vh] flex flex-col justify-between" role="dialog" aria-modal="true" aria-labelledby="resume-modal-title">
+
+      <!-- header -->
+      <div class="flex items-center justify-between border-b pb-4 border-slate-300 dark:border-slate-800">
+        <div class="flex items-center space-x-3">
+          <div class="w-10 h-10 neu-card-sm flex items-center justify-center text-red-500 font-bold">
+            <i class="fa-solid fa-file-pdf text-lg"></i>
+          </div>
+          <div>
+            <h3 id="resume-modal-title" class="text-lg sm:text-xl font-extrabold" style="color: var(--text-heading);">Curriculum Vitae — Anees Nambiyatheyil</h3>
+            <p class="text-xs font-medium" style="color: var(--text-muted);">Senior Front-End Application Developer & Tech Lead (PDF Document)</p>
+          </div>
+        </div>
+
+        <button id="resume-close-btn" aria-label="Close Resume Modal" class="w-9 h-9 neu-btn flex items-center justify-center">
+          <i class="fa-solid fa-xmark text-sm"></i>
+        </button>
+      </div>
+
+      <!-- resume quick view -->
+      <div class="p-6 neu-inset flex-1 overflow-y-auto space-y-6 text-xs sm:text-sm leading-relaxed" style="color: var(--text-main);">
+
+        <!-- resume header -->
+        <div class="flex flex-col sm:flex-row justify-between sm:items-center border-b pb-4 border-slate-300 dark:border-slate-800 gap-2">
+          <div>
+            <h4 class="text-lg font-black" style="color: var(--text-heading);">ANEES NAMBIYATHEYIL</h4>
+            <p class="font-bold text-xs" style="color: var(--accent);">SENIOR FRONT-END APPLICATION DEVELOPER</p>
+          </div>
+          <div class="space-y-1 text-xs font-semibold" style="color: var(--text-muted);">
+            <div><i class="fa-solid fa-envelope mr-1.5"></i> aneesnambiyatheyil@gmail.com</div>
+            <div><i class="fa-solid fa-phone mr-1.5"></i> +971 55 617 6229 • UAE</div>
+            <a href="https://linkedin.com/in/anees-ibrahim-8596b715" target="_blank" rel="noopener noreferrer" class="inline-flex items-center space-x-1.5 text-sky-600 dark:text-sky-400 font-bold hover:underline">
+              <i class="fa-brands fa-linkedin"></i>
+              <span>Connect on LinkedIn</span>
+              <i class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- resume summary -->
+        <div class="space-y-1">
+          <h5 class="text-xs font-extrabold uppercase tracking-wider" style="color: var(--text-heading);">Professional Summary</h5>
+          <p>
+            Front-end developer with 9 years on JivoxIQ, an enterprise SaaS platform where brands design, publish and report on digital campaigns. Started as Associate Developer and became Team Lead through three promotions. Works with React and Next.js on front-end architecture, reusable components, performance and cross-browser reliability.
+          </p>
+        </div>
+
+        <!-- resume skills -->
+        <div class="space-y-2">
+          <h5 class="text-xs font-extrabold uppercase tracking-wider" style="color: var(--text-heading);">Technical Skills</h5>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+            <div class="p-2.5 neu-card-sm"><strong>Core Stack:</strong> JavaScript (ES6+), React, Next.js, HTML5, CSS3</div>
+            <div class="p-2.5 neu-card-sm"><strong>SaaS Apps:</strong> Front-End Architecture, Component UI, Design Systems</div>
+            <div class="p-2.5 neu-card-sm"><strong>Quality & Perf:</strong> Optimization, Cross-Browser Compatibility, Debugging</div>
+            <div class="p-2.5 neu-card-sm"><strong>Tools & Leadership:</strong> Git, Figma, AI-Assisted Workflows, Mentoring</div>
+          </div>
+        </div>
+
+        <!-- resume experience -->
+        <div class="space-y-3">
+          <h5 class="text-xs font-extrabold uppercase tracking-wider" style="color: var(--text-heading);">Professional Experience</h5>
+
+          <div class="space-y-1">
+            <div class="flex justify-between font-bold text-xs" style="color: var(--text-heading);">
+              <span>DaVinci Commerce (formerly Jivox) — Team Lead</span>
+              <span style="color: var(--accent);">Oct 2024 – Oct 2025</span>
+            </div>
+            <ul class="list-disc pl-4 space-y-1 text-xs" style="color: var(--text-muted);">
+              <li>Led and mentored front-end engineers building JivoxIQ. Set architecture direction and code standards for React/Next.js.</li>
+              <li>Shipped dynamic ad-tech features used by enterprise clients: Marriott, Bosch, Nestlé, Mazda, Condé Nast.</li>
+            </ul>
+          </div>
+
+          <div class="space-y-1">
+            <div class="flex justify-between font-bold text-xs" style="color: var(--text-heading);">
+              <span>Senior Developer / Developer / Associate</span>
+              <span style="color: var(--text-muted);">Jul 2016 – Oct 2024</span>
+            </div>
+            <p class="text-xs" style="color: var(--text-muted);">
+              Built scalable front-end architecture, created reusable component libraries, improved browser performance, and earned 3 successive promotions.
+            </p>
+          </div>
+        </div>
+
+        <!-- education -->
+        <div class="space-y-1 pt-1">
+          <h5 class="text-xs font-extrabold uppercase tracking-wider" style="color: var(--text-heading);">Education</h5>
+          <p class="text-xs"><strong>Bachelor of Engineering (BE), Computer Science</strong> — Alva's Institute of Engineering & Tech (2008 – 2012)</p>
+        </div>
+
+      </div>
+
+      <!-- footer buttons -->
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-3 pt-2">
+        <span class="text-xs font-medium" style="color: var(--text-muted);">Official CV • Anees_Nambiyatheyil_CV.pdf</span>
+
+        <div class="flex items-center space-x-3 w-full sm:w-auto">
+          <button id="resume-download-action" class="flex-1 sm:flex-none px-6 py-3 neu-btn-accent text-xs font-bold uppercase tracking-wider flex items-center justify-center space-x-2">
+            <i class="fa-solid fa-download"></i>
+            <span>Download PDF</span>
+          </button>
+
+          <button id="resume-close-action" class="flex-1 sm:flex-none px-5 py-3 neu-btn text-xs font-bold uppercase tracking-wider">
+            Close
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- project modal -->
+  <div id="modal-overlay" class="fixed inset-0 z-50 hidden bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="neu-card max-w-xl w-full p-6 sm:p-8 space-y-6 relative max-h-[90vh] overflow-y-auto" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+
+      <!-- close button -->
+      <button id="modal-close-btn" aria-label="Close modal" class="absolute top-5 right-5 w-9 h-9 neu-btn flex items-center justify-center">
+        <i class="fa-solid fa-xmark text-sm"></i>
+      </button>
+
+      <div class="space-y-2">
+        <span id="modal-category" class="px-3 py-1 neu-inset text-xs font-bold text-indigo-600 dark:text-indigo-400">Category</span>
+        <h3 id="modal-title" class="text-2xl font-extrabold pt-2" style="color: var(--text-heading);">Project Title</h3>
+      </div>
+
+      <p id="modal-description" class="text-sm leading-relaxed" style="color: var(--text-main);">
+        Detailed project summary...
+      </p>
+
+      <div class="space-y-2">
+        <h4 class="text-xs font-extrabold uppercase tracking-widest" style="color: var(--text-muted);">Tech Stack & Tools</h4>
+        <div id="modal-tech-stack" class="flex flex-wrap gap-2 text-xs">
+          <!-- filled in by openProjectModal -->
+        </div>
+      </div>
+
+      <div class="p-4 neu-inset space-y-1">
+        <h4 class="text-xs font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">Key Business Impact</h4>
+        <p id="modal-impact" class="text-xs sm:text-sm font-semibold" style="color: var(--text-heading);">Impact statement...</p>
+      </div>
+
+      <div class="pt-2 flex justify-end">
+        <button id="modal-bottom-close" class="px-5 py-2.5 neu-btn font-bold text-xs uppercase tracking-wider">Close</button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- scripts -->
+  <script>
+    // project data
+    const PORTFOLIO_PROJECTS = [
+      {
+        id: "jivox-builder",
+        title: "JivoxIQ SaaS Campaign Studio",
+        category: "SaaS",
+        shortDesc: "Enterprise web application for creating, publishing, and analyzing dynamic ad campaigns.",
+        fullDesc: "Engineered core front-end modules for the JivoxIQ platform used by global brand marketers. Implemented interactive drag-and-drop authoring tools, dynamic data bindings, real-time campaign previews, and modular web widgets.",
+        tech: ["React.js", "Next.js", "JavaScript (ES6+)", "SaaS Architecture"],
+        impact: "Shipped core features actively utilized by enterprise brands like Marriott, Bosch, Nestlé, and Mazda."
+      },
+      {
+        id: "publisher-pipeline",
+        title: "Publisher Ad Rendering Engine",
+        category: "AdTech",
+        shortDesc: "High-performance automated web asset assembly pipeline for tier-1 publisher networks.",
+        fullDesc: "Constructed dynamic ad rendering scripts and cross-platform display templates adhering to strict publisher specs (Condé Nast, Time Inc.). Focused on zero rendering latency, cross-device compatibility, and optimal memory management.",
+        tech: ["JavaScript", "Asset Pipelines", "Cross-Browser Compatibility", "Performance"],
+        impact: "Ensured 100% specification compliance across high-volume digital ad campaigns."
+      },
+      {
+        id: "component-design-system",
+        title: "Enterprise Component System",
+        category: "React",
+        shortDesc: "Modular React and Next.js UI component library standardizing design across internal apps.",
+        fullDesc: "Created accessible, reusable UI component kits with strict code standards, design tokens, and automated testing routines. Mentored team members on component composition patterns.",
+        tech: ["React", "Next.js", "Design Systems", "Code Review"],
+        impact: "Reduced feature development cycle times by 35% across front-end engineering teams."
+      },
+      {
+        id: "performance-optimization",
+        title: "Cross-Device Performance Suite",
+        category: "AdTech",
+        shortDesc: "Web Vitals and layout reflow optimization framework for interactive rich media.",
+        fullDesc: "Executed deep browser memory profiling, reduced DOM reflow bottlenecks, and eliminated complex rendering bugs across diverse mobile and desktop browsers.",
+        tech: ["Performance Optimization", "Debugging", "Cross-Device Testing", "JavaScript"],
+        impact: "Dramatically improved frame rates and stability on low-spec mobile web browsers."
+      },
+      {
+        id: "ai-assisted-workflow",
+        title: "AI-Assisted Dev Workflow Pipeline",
+        category: "SaaS",
+        shortDesc: "Modern developer tooling integration accelerating front-end delivery and testing.",
+        fullDesc: "Integrated AI-assisted coding and automated testing tools into the asset compilation pipeline during tenure as Team Lead, improving code consistency and reducing repetitive boilerplate.",
+        tech: ["AI Tooling", "Git", "Developer Tools", "Team Leadership"],
+        impact: "Increased developer velocity and streamlined asset quality verification."
+      }
+    ];
+
+    // elements
+    const projectsGrid = document.getElementById('projects-grid');
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const themeToggleBtn = document.getElementById('theme-toggle');
+    const contactForm = document.getElementById('contact-form');
+
+    // resume modal
+    const resumeModalOverlay = document.getElementById('resume-modal-overlay');
+    const openResumeBtn = document.getElementById('open-resume-btn');
+    const heroResumeBtn = document.getElementById('hero-resume-btn');
+    const resumeCloseBtn = document.getElementById('resume-close-btn');
+    const resumeCloseAction = document.getElementById('resume-close-action');
+    const resumeDownloadAction = document.getElementById('resume-download-action');
+
+    // project modal
+    const modalOverlay = document.getElementById('modal-overlay');
+    const modalTitle = document.getElementById('modal-title');
+    const modalCategory = document.getElementById('modal-category');
+    const modalDescription = document.getElementById('modal-description');
+    const modalTechStack = document.getElementById('modal-tech-stack');
+    const modalImpact = document.getElementById('modal-impact');
+    const modalCloseBtn = document.getElementById('modal-close-btn');
+    const modalBottomClose = document.getElementById('modal-bottom-close');
+
+    // project cards
+    function renderProjects(filter = 'all') {
+      const filteredProjects = filter === 'all'
+        ? PORTFOLIO_PROJECTS
+        : PORTFOLIO_PROJECTS.filter(p => p.category === filter || p.tech.includes(filter));
+
+      projectsGrid.innerHTML = filteredProjects.map(project => `
+        <article onclick="openProjectModal('${project.id}')" class="p-6 sm:p-7 neu-card hover:-translate-y-1 transition-all cursor-pointer flex flex-col justify-between group" tabindex="0" role="button" aria-label="View details for ${project.title}">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="px-3 py-1 neu-inset text-[10px] font-extrabold uppercase text-indigo-600 dark:text-indigo-400">${project.category}</span>
+              <i class="fa-solid fa-arrow-up-right-from-square text-xs text-slate-400 group-hover:text-indigo-500 transition-colors"></i>
+            </div>
+            <h3 class="text-lg sm:text-xl font-extrabold group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors" style="color: var(--text-heading);">${project.title}</h3>
+            <p class="text-xs sm:text-sm leading-relaxed" style="color: var(--text-main);">${project.shortDesc}</p>
+          </div>
+
+          <div class="pt-4 flex flex-wrap gap-1.5">
+            ${project.tech.map(t => `<span class="px-2.5 py-1 neu-inset text-[10px] font-semibold" style="color: var(--text-muted);">${t}</span>`).join('')}
+          </div>
+        </article>
+      `).join('');
+    }
+
+    // filters
+    function handleFilterClick(event) {
+      filterButtons.forEach(btn => btn.classList.remove('is-active'));
+      event.currentTarget.classList.add('is-active');
+      const selectedFilter = event.currentTarget.getAttribute('data-filter');
+      renderProjects(selectedFilter);
+    }
+
+    filterButtons.forEach(btn => {
+      btn.addEventListener('click', handleFilterClick);
+    });
+
+    // resume
+    function openResumeModal() {
+      resumeModalOverlay.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeResumeModal() {
+      resumeModalOverlay.classList.add('hidden');
+      document.body.style.overflow = 'auto';
+    }
+
+    function downloadResumePDF() {
+      // the PDF has to sit next to this html file
+      const link = document.createElement('a');
+      link.href = 'Anees_Nambiyatheyil_Resume.pdf';
+      link.download = 'Anees_Nambiyatheyil_Senior_FrontEnd_Developer_CV.pdf';
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+
+      // confirmation message
+      const originalText = resumeDownloadAction.innerHTML;
+      resumeDownloadAction.innerHTML = `<i class="fa-solid fa-circle-check text-white"></i> <span>CV Downloaded!</span>`;
+
+      setTimeout(() => {
+        resumeDownloadAction.innerHTML = originalText;
+      }, 2500);
+    }
+
+    openResumeBtn.addEventListener('click', openResumeModal);
+    heroResumeBtn.addEventListener('click', openResumeModal);
+    resumeCloseBtn.addEventListener('click', closeResumeModal);
+    resumeCloseAction.addEventListener('click', closeResumeModal);
+    resumeDownloadAction.addEventListener('click', downloadResumePDF);
+
+    resumeModalOverlay.addEventListener('click', (e) => {
+      if (e.target === resumeModalOverlay) closeResumeModal();
+    });
+
+    // project modal
+    function openProjectModal(projectId) {
+      const project = PORTFOLIO_PROJECTS.find(p => p.id === projectId);
+      if (!project) return;
+
+      modalTitle.innerText = project.title;
+      modalCategory.innerText = project.category;
+      modalDescription.innerText = project.fullDesc;
+      modalImpact.innerText = project.impact;
+
+      modalTechStack.innerHTML = project.tech.map(tech => `
+        <span class="px-3 py-1.5 neu-btn font-semibold" style="color: var(--text-heading);">${tech}</span>
+      `).join('');
+
+      modalOverlay.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeProjectModal() {
+      modalOverlay.classList.add('hidden');
+      document.body.style.overflow = 'auto';
+    }
+
+    modalCloseBtn.addEventListener('click', closeProjectModal);
+    modalBottomClose.addEventListener('click', closeProjectModal);
+    modalOverlay.addEventListener('click', (e) => {
+      if (e.target === modalOverlay) closeProjectModal();
+    });
+
+    // escape closes modals
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        if (!modalOverlay.classList.contains('hidden')) closeProjectModal();
+        if (!resumeModalOverlay.classList.contains('hidden')) closeResumeModal();
+      }
+    });
+
+    // theme
+    function initTheme() {
+      const savedTheme = localStorage.getItem('portfolio-theme');
+      if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    }
+
+    themeToggleBtn.addEventListener('click', () => {
+      const isDark = document.documentElement.classList.toggle('dark');
+      localStorage.setItem('portfolio-theme', isDark ? 'dark' : 'light');
+    });
+
+    // contact form
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const btnText = document.getElementById('btn-text');
+      const btnIcon = document.getElementById('btn-icon');
+      const submitBtn = document.getElementById('submit-btn');
+
+      // sending state
+      btnText.innerText = "Sending...";
+      btnIcon.className = "fa-solid fa-spinner animate-spin text-xs";
+      submitBtn.disabled = true;
+
+      setTimeout(() => {
+        btnText.innerText = "Message Sent Successfully!";
+        btnIcon.className = "fa-solid fa-check text-xs";
+
+        contactForm.reset();
+
+        setTimeout(() => {
+          btnText.innerText = "Send Message";
+          btnIcon.className = "fa-solid fa-paper-plane text-xs";
+          submitBtn.disabled = false;
+        }, 3000);
+      }, 1000);
+    });
+
+    // init
+    window.addEventListener('DOMContentLoaded', () => {
+      initTheme();
+      renderProjects('all');
+      document.getElementById('current-year').innerText = new Date().getFullYear();
+    });
+  </script>
+</body>
+</html>
